@@ -1,219 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags for SEO -->
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download Files</title>
-    <style>
-        /* Reset some default styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <title>UPSC & Government Exam Resources | Free Downloads</title>
+    <meta name="description" content="Access a wide range of free study materials for UPSC and other government exams. Download PDFs, guides, and resources to aid your preparation.">
+    <meta name="keywords" content="UPSC, Government Exams, Free Study Materials, Download PDFs, Exam Preparation, Indian Civil Services, UPSC Resources">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="UPSC & Government Exam Resources | Free Downloads">
+    <meta property="og:description" content="Access a wide range of free study materials for UPSC and other government exams. Download PDFs, guides, and resources to aid your preparation.">
+    <meta property="og:url" content="https://isauravmanitripathi.github.io/file-storage/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://isauravmanitripathi.github.io/file-storage/images/og-image.jpg"> <!-- Replace with your own image URL -->
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
-        .container {
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            padding: 40px;
-            max-width: 700px;
-            width: 100%;
-            transform: perspective(1000px) rotateY(0deg);
-            transition: transform 0.5s;
-        }
-
-        .container:hover {
-            transform: perspective(1000px) rotateY(2deg);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .file-list {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .file-item {
-            background: #f0f4f8;
-            padding: 20px 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .file-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-        }
-
-        .file-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .file-name {
-            font-size: 1.1em;
-            color: #333;
-            flex: 1;
-            margin-right: 15px;
-            text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
-        }
-
-        .buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .download-btn, .copy-btn {
-            background: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 18px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 0.9em;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .download-btn:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-        }
-
-        .copy-btn {
-            background: #2196F3;
-        }
-
-        .copy-btn:hover {
-            background: #1e88e5;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-        }
-
-        .copied-tooltip {
-            visibility: hidden;
-            background-color: #555;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 10px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%; /* Position above the button */
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 0.8em;
-        }
-
-        .copied-tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%; /* At the bottom of the tooltip */
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
-        }
-
-        .copy-btn:hover .copied-tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .file-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .buttons {
-                margin-top: 15px;
-                width: 100%;
-            }
-
-            .download-btn, .copy-btn {
-                width: 48%;
-                text-align: center;
-            }
-        }
-    </style>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Available Downloads</h1>
-        <div class="file-list">
-            <!-- File Item 1 -->
-            <div class="file-item">
-                <div class="file-header">
-                    <span class="file-name">India Gandhi Case - Which Shook India And Lead To Emergency</span>
-                </div>
-                <div class="buttons">
-                    <a href="static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf" download class="download-btn">Download</a>
-                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf">
-                        Copy Link
-                        <span class="copied-tooltip">Copied!</span>
-                    </button>
-                </div>
+    <!-- Header Section with Navigation -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Exam Resources</a>
             </div>
-            <!-- File Item 2 -->
-            <div class="file-item">
-                <div class="file-header">
-                    <span class="file-name">The Kargil War</span>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#downloads">Downloads</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Your Ultimate Exam Resource Hub</h1>
+            <p>Access and download comprehensive materials to ace your UPSC and other government examinations.</p>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="downloads">
+        <div class="container">
+            <h2>Available Downloads</h2>
+            <div class="file-list">
+                <!-- File Item 1 -->
+                <div class="file-item">
+                    <div class="file-header">
+                        <span class="file-name">India Gandhi Case - Which Shook India And Lead To Emergency</span>
+                    </div>
+                    <div class="buttons">
+                        <a href="static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf" download class="download-btn">Download</a>
+                        <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf">
+                            Copy Link
+                            <span class="copied-tooltip">Copied!</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="buttons">
-                    <a href="static-files/The Kargil War.pdf" download class="download-btn">Download</a>
-                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/The Kargil War.pdf">
-                        Copy Link
-                        <span class="copied-tooltip">Copied!</span>
-                    </button>
+                <!-- File Item 2 -->
+                <div class="file-item">
+                    <div class="file-header">
+                        <span class="file-name">The Kargil War</span>
+                    </div>
+                    <div class="buttons">
+                        <a href="static-files/The Kargil War.pdf" download class="download-btn">Download</a>
+                        <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/The Kargil War.pdf">
+                            Copy Link
+                            <span class="copied-tooltip">Copied!</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <!-- File Item 3 -->
-            <div class="file-item">
-                <div class="file-header">
-                    <span class="file-name">Understanding the Indian Environment For UPSC</span>
+                <!-- File Item 3 -->
+                <div class="file-item">
+                    <div class="file-header">
+                        <span class="file-name">Understanding the Indian Environment For UPSC</span>
+                    </div>
+                    <div class="buttons">
+                        <a href="static-files/Understanding the Indian Environment For UPSC.pdf" download class="download-btn">Download</a>
+                        <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/Understanding the Indian Environment For UPSC.pdf">
+                            Copy Link
+                            <span class="copied-tooltip">Copied!</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="buttons">
-                    <a href="static-files/Understanding the Indian Environment For UPSC.pdf" download class="download-btn">Download</a>
-                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/Understanding the Indian Environment For UPSC.pdf">
-                        Copy Link
-                        <span class="copied-tooltip">Copied!</span>
-                    </button>
-                </div>
+                <!-- Add more file items as needed -->
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Our mission is to provide free, high-quality study materials to aspirants preparing for UPSC and other government examinations. We believe in empowering every student with the resources they need to succeed.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, suggestions, or need support, feel free to reach out to us.</p>
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Exam Resources. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/isauravmanitripathi" target="_blank" aria-label="GitHub"><img src="images/github-icon.svg" alt="GitHub"></a>
+                <a href="https://linkedin.com/in/isauravmanitripathi" target="_blank" aria-label="LinkedIn"><img src="images/linkedin-icon.svg" alt="LinkedIn"></a>
+                <!-- Add more social icons as needed -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JavaScript for Copy Link Functionality -->
     <script>
         // Function to copy text to clipboard
         function copyToClipboard(text, tooltip) {
