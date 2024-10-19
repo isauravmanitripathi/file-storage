@@ -1,0 +1,3 @@
+static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf = India Gandhi Case - Which Shook India And lead TO Emergency.pdf
+static-files/The Kargil War.pdf = The Kargil War
+static-files/Understanding the Indian Environment For UPSC.pdf = Understanding the Indian Environment For UPSC
