@@ -13,33 +13,10 @@
 </head>
 <body>
     <h1>Available Downloads</h1>
-    <div id="file-list" class="file-list"></div>
-
-    <script>
-        // Fetch and process files.txt with file paths and display names
-        fetch('files.txt')
-            .then(response => response.text())
-            .then(data => {
-                const fileList = data.split('\n'); // Split by newlines to get each line
-                const fileListElement = document.getElementById('file-list');
-                
-                // Loop through each line in the files.txt
-                fileList.forEach(file => {
-                    if (file.trim()) { // Ensure it's not an empty line
-                        const [filePath, displayName] = file.split('='); // Split by '='
-                        
-                        // Create a download link
-                        const link = document.createElement('a');
-                        link.href = filePath.trim(); // Set href to the file path
-                        link.textContent = `Download ${displayName.trim()}`; // Set link text to display name
-                        link.download = displayName.trim(); // Set download attribute to suggest filename
-
-                        // Append the link to the file list element
-                        fileListElement.appendChild(link);
-                    }
-                });
-            })
-            .catch(error => console.error('Error loading file list:', error));
-    </script>
+    <div class="file-list">
+        <a href="static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf" download>Download India Gandhi Case - Which Shook India And lead TO Emergency</a>
+        <a href="static-files/The Kargil War.pdf" download>Download The Kargil War</a>
+        <a href="static-files/Understanding the Indian Environment For UPSC.pdf" download>Download Understanding the Indian Environment For UPSC</a>
+    </div>
 </body>
 </html>
