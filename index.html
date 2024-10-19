@@ -27,37 +27,34 @@
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             padding: 40px;
-            max-width: 600px;
+            max-width: 700px;
             width: 100%;
             transform: perspective(1000px) rotateY(0deg);
             transition: transform 0.5s;
         }
 
         .container:hover {
-            transform: perspective(1000px) rotateY(5deg);
+            transform: perspective(1000px) rotateY(2deg);
         }
 
         h1 {
             text-align: center;
             color: #333;
             margin-bottom: 30px;
-            font-size: 2em;
+            font-size: 2.5em;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .file-list {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
         }
 
         .file-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             background: #f0f4f8;
-            padding: 15px 20px;
-            border-radius: 10px;
+            padding: 20px 25px;
+            border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -67,19 +64,33 @@
             box-shadow: 0 8px 12px rgba(0,0,0,0.2);
         }
 
+        .file-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
         .file-name {
-            font-size: 1em;
+            font-size: 1.1em;
             color: #333;
             flex: 1;
-            margin-right: 20px;
+            margin-right: 15px;
             text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
         }
 
-        .download-btn {
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn, .copy-btn {
             background: #4CAF50;
             border: none;
             color: white;
-            padding: 10px 20px;
+            padding: 10px 18px;
             text-align: center;
             text-decoration: none;
             font-size: 0.9em;
@@ -95,16 +106,63 @@
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
 
+        .copy-btn {
+            background: #2196F3;
+        }
+
+        .copy-btn:hover {
+            background: #1e88e5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .copied-tooltip {
+            visibility: hidden;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position above the button */
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8em;
+        }
+
+        .copied-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .copy-btn:hover .copied-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
         /* Responsive adjustments */
-        @media (max-width: 500px) {
-            .file-item {
+        @media (max-width: 600px) {
+            .file-header {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .download-btn {
-                margin-top: 10px;
+            .buttons {
+                margin-top: 15px;
                 width: 100%;
+            }
+
+            .download-btn, .copy-btn {
+                width: 48%;
                 text-align: center;
             }
         }
@@ -114,19 +172,73 @@
     <div class="container">
         <h1>Available Downloads</h1>
         <div class="file-list">
+            <!-- File Item 1 -->
             <div class="file-item">
-                <span class="file-name">India Gandhi Case - Which Shook India And Lead To Emergency</span>
-                <a href="static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf" download class="download-btn">Download</a>
+                <div class="file-header">
+                    <span class="file-name">India Gandhi Case - Which Shook India And Lead To Emergency</span>
+                </div>
+                <div class="buttons">
+                    <a href="static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf" download class="download-btn">Download</a>
+                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/India Gandhi Case - Which Shook India And lead TO Emergency.pdf">
+                        Copy Link
+                        <span class="copied-tooltip">Copied!</span>
+                    </button>
+                </div>
             </div>
+            <!-- File Item 2 -->
             <div class="file-item">
-                <span class="file-name">The Kargil War</span>
-                <a href="static-files/The Kargil War.pdf" download class="download-btn">Download</a>
+                <div class="file-header">
+                    <span class="file-name">The Kargil War</span>
+                </div>
+                <div class="buttons">
+                    <a href="static-files/The Kargil War.pdf" download class="download-btn">Download</a>
+                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/The Kargil War.pdf">
+                        Copy Link
+                        <span class="copied-tooltip">Copied!</span>
+                    </button>
+                </div>
             </div>
+            <!-- File Item 3 -->
             <div class="file-item">
-                <span class="file-name">Understanding the Indian Environment For UPSC</span>
-                <a href="static-files/Understanding the Indian Environment For UPSC.pdf" download class="download-btn">Download</a>
+                <div class="file-header">
+                    <span class="file-name">Understanding the Indian Environment For UPSC</span>
+                </div>
+                <div class="buttons">
+                    <a href="static-files/Understanding the Indian Environment For UPSC.pdf" download class="download-btn">Download</a>
+                    <button class="copy-btn" data-link="https://isauravmanitripathi.github.io/file-storage/static-files/Understanding the Indian Environment For UPSC.pdf">
+                        Copy Link
+                        <span class="copied-tooltip">Copied!</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Function to copy text to clipboard
+        function copyToClipboard(text, tooltip) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Show tooltip
+                tooltip.style.visibility = 'visible';
+                tooltip.style.opacity = '1';
+                // Hide after 2 seconds
+                setTimeout(function() {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        // Attach event listeners to all copy buttons
+        document.querySelectorAll('.copy-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const link = this.getAttribute('data-link');
+                const tooltip = this.querySelector('.copied-tooltip');
+                copyToClipboard(link, tooltip);
+            });
+        });
+    </script>
 </body>
 </html>
